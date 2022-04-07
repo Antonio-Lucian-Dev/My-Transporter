@@ -1,6 +1,5 @@
 package com.asusoftware.MyTransporter.user.model.dto;
 
-import com.asusoftware.MyTransporter.user.model.User;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,5 +15,5 @@ public class PostDto {
     private String description;
     private LocalDateTime createdAt;
     private String currentCity;
-    private User user;
+    private UserDto userDto;
 }

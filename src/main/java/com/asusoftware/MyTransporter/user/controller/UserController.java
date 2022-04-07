@@ -6,8 +6,6 @@ import com.asusoftware.MyTransporter.user.model.dto.UserDto;
 import com.asusoftware.MyTransporter.user.model.dto.UserProfileDto;
 import com.asusoftware.MyTransporter.user.service.UserService;
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

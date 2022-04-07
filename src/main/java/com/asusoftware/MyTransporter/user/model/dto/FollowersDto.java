@@ -1,9 +1,9 @@
 package com.asusoftware.MyTransporter.user.model.dto;
 
+import com.asusoftware.MyTransporter.user.model.UserRole;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDate;
 import java.util.UUID;
 
 @Getter
@@ -14,7 +14,8 @@ public class FollowersDto {
     private String firstName;
     private String lastName;
     private String currentCity;
-    private String email;
+    //private String email;
     private String phoneNumber;
-    private LocalDate birthday;
+    //private LocalDate birthday;
+    private UserRole userRole;
 }

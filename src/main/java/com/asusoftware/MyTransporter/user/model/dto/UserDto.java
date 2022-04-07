@@ -15,12 +15,12 @@ public class UserDto {
     private UUID id;
     private String firstName;
     private String lastName;
-    private String currentCity;
+    //private String currentCity;
     //private String email;
     //private String phoneNumber;
    // private String password;
     //private LocalDate birthday;
-   // private UserRole userRole;
+    private UserRole userRole;
     // urmarit
     //private UserDto followed;
     // urmaritori

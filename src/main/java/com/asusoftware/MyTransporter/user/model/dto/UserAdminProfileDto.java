@@ -15,7 +15,6 @@ public class UserAdminProfileDto {
     private UUID id;
     private String firstName;
     private String lastName;
-    private String currentCity;
     private String email;
     private String phoneNumber;
     // private String password;
