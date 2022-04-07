@@ -1,7 +1,9 @@
 package com.asusoftware.MyTransporter.user.controller;
 
 import com.asusoftware.MyTransporter.user.model.dto.CreateUserDto;
+import com.asusoftware.MyTransporter.user.model.dto.UserAdminProfileDto;
 import com.asusoftware.MyTransporter.user.model.dto.UserDto;
+import com.asusoftware.MyTransporter.user.model.dto.UserProfileDto;
 import com.asusoftware.MyTransporter.user.service.UserService;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
@@ -27,6 +29,22 @@ public class UserController {
     @GetMapping(path = "/findAll")
     public List<UserDto> findAll() {
         return userService.findAll();
+    }
+
+    /*
+    * Retrieve admin profile
+    */
+    @GetMapping(path = "/adminProfile/{id}")
+    public UserAdminProfileDto findAdminProfile(@PathVariable(name = "id") UUID id) {
+        return userService.findUserAdminProfileById(id);
+    }
+
+    /*
+     * Retrieve user profile
+     */
+    @GetMapping(path = "/userProfile/{id}")
+    public UserProfileDto findUserProfile(@PathVariable(name = "id") UUID id) {
+        return userService.findUserProfileById(id);
     }
 
     @GetMapping(path = "/findUserByCity/{cityName}")

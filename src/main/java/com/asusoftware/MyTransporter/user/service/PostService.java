@@ -1,7 +1,7 @@
 package com.asusoftware.MyTransporter.user.service;
 
 import com.asusoftware.MyTransporter.user.model.Post;
-import com.asusoftware.MyTransporter.user.model.PostDtoEntity;
+import com.asusoftware.MyTransporter.user.mappers.PostDtoEntity;
 import com.asusoftware.MyTransporter.user.model.User;
 import com.asusoftware.MyTransporter.user.model.dto.CreatePostDto;
 import com.asusoftware.MyTransporter.user.model.dto.PostDto;

@@ -1,5 +1,6 @@
-package com.asusoftware.MyTransporter.user.model;
+package com.asusoftware.MyTransporter.user.mappers;
 
+import com.asusoftware.MyTransporter.user.model.Post;
 import com.asusoftware.MyTransporter.user.model.dto.CreatePostDto;
 import com.asusoftware.MyTransporter.user.model.dto.PostDto;
 import org.mapstruct.Mapper;
