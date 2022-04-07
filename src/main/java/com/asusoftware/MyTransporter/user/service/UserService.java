@@ -57,4 +57,8 @@ public class UserService {
     public List<UserDto> findAll() {
         return userRepository.findAll().stream().map(userDtoEntity::userToDto).collect(Collectors.toList());
     }
+
+    public List<User> findAllEntity() {
+        return userRepository.findAll();
+    }
 }

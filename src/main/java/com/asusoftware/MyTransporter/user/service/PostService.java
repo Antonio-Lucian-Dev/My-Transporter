@@ -1,5 +1,7 @@
 package com.asusoftware.MyTransporter.user.service;
 
+import com.asusoftware.MyTransporter.notification.model.dto.CreateNotificationDto;
+import com.asusoftware.MyTransporter.notification.service.NotificationService;
 import com.asusoftware.MyTransporter.user.model.Post;
 import com.asusoftware.MyTransporter.user.mappers.PostDtoEntity;
 import com.asusoftware.MyTransporter.user.model.User;
@@ -22,6 +24,7 @@ public class PostService {
     private final PostRepository postRepository;
     private final UserService userService;
     private final PostDtoEntity postDtoEntity;
+    private final NotificationService notificationService;
 
     public void create(UUID id, CreatePostDto createPostDto) {
         User user = userService.findUserById(id);
@@ -29,6 +32,9 @@ public class PostService {
         post.setCreatedAt(LocalDateTime.now(ZoneOffset.UTC));
         post.setUser(user);
         postRepository.save(post);
+        CreateNotificationDto createNotificationDto = new CreateNotificationDto();
+        createNotificationDto.setDescription(createPostDto.getDescription());
+        notificationService.create(createNotificationDto, id);
     }
 
     public List<PostDto> findAll() {

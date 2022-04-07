@@ -1,5 +1,6 @@
 package com.asusoftware.MyTransporter.user.model;
 
+import com.asusoftware.MyTransporter.notification.model.NotificationAction;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -52,6 +53,9 @@ public class User {
     @ManyToOne
     @JoinColumn(name = "follower_id", referencedColumnName = "id")
     public User followed;
+
+    @OneToMany(mappedBy = "user")
+    private List<NotificationAction> notificationAction;
 
     /*
     @OneToMany(mappedBy = "user")
