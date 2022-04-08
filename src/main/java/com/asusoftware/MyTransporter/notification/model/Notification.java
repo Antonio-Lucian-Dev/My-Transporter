@@ -1,6 +1,5 @@
 package com.asusoftware.MyTransporter.notification.model;
 
-import com.asusoftware.MyTransporter.user.model.User;
 import lombok.Getter;
 import lombok.Setter;
 

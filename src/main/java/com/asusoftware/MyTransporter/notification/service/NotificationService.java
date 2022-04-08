@@ -49,6 +49,10 @@ public class NotificationService {
         return notificationRepository.findAll().stream().map(notificationDtoEntity::notificationToDto).collect(Collectors.toList());
     }
 
+    public Notification findById(UUID id) {
+        return notificationRepository.findById(id).orElse(null);
+    }
+
     private List<User> findAllUsersWithRoleUser() {
         return userService.findAllEntity().stream().filter(user -> user.getUserRole().equals(UserRole.USER)).collect(Collectors.toList());
     }

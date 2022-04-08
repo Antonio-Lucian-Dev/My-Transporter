@@ -1,14 +1,17 @@
 package com.asusoftware.MyTransporter.notification.service;
 
 import com.asusoftware.MyTransporter.notification.mappers.NotificationActionDtoEntity;
+import com.asusoftware.MyTransporter.notification.model.Notification;
 import com.asusoftware.MyTransporter.notification.model.NotificationAction;
 import com.asusoftware.MyTransporter.notification.model.dto.CreateNotificationActionDto;
 import com.asusoftware.MyTransporter.notification.model.dto.NotificationActionDto;
+import com.asusoftware.MyTransporter.notification.model.dto.UpdateNotificationActionDto;
 import com.asusoftware.MyTransporter.notification.repository.NotificationActionRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -25,6 +28,20 @@ public class NotificationActionService {
         notificationAction.setNotification(createNotificationActionDto.getNotification());
         notificationAction.setUser(createNotificationActionDto.getUser());
         notificationActionRepository.save(notificationAction);
+    }
+
+    public void update(UUID notificationUuid, UUID userId, UpdateNotificationActionDto updateNotificationActionDto) {
+        System.out.println(updateNotificationActionDto.getIsRead());
+        notificationActionRepository.findAll()
+                .stream()
+                .filter(notificationAction -> notificationAction.getNotification().getId().equals(notificationUuid))
+                .findFirst().stream().filter(notificationAction -> notificationAction.getUser().getId().equals(userId))
+                .findFirst()
+                .ifPresent(notificationActionFinded -> {
+                    notificationActionFinded.setRead(updateNotificationActionDto.getIsRead());
+                    notificationActionFinded.setNew(false);
+                    notificationActionRepository.save(notificationActionFinded);
+                });
     }
 
     public List<NotificationActionDto> findAll() {
