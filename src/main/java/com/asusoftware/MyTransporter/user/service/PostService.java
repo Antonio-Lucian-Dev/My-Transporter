@@ -9,6 +9,8 @@ import com.asusoftware.MyTransporter.user.model.dto.CreatePostDto;
 import com.asusoftware.MyTransporter.user.model.dto.PostDto;
 import com.asusoftware.MyTransporter.user.repository.PostRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -37,7 +39,8 @@ public class PostService {
         notificationService.create(createNotificationDto, id);
     }
 
-    public List<PostDto> findAll() {
-        return postRepository.findAll().stream().map(postDtoEntity::postToDto).collect(Collectors.toList());
+    public List<PostDto> findAll(int pageNumber) {
+        PageRequest pageRequest = PageRequest.of(pageNumber, 5, Sort.by("createdAt").ascending());
+        return postRepository.findAll(pageRequest).stream().map(postDtoEntity::postToDto).collect(Collectors.toList());
     }
 }

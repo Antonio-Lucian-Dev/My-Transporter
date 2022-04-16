@@ -21,9 +21,9 @@ public class PostController {
         postService.create(id, createPostDto);
     }
 
-    @GetMapping(path = "/findAll")
-    public List<PostDto> findAll() {
-        return postService.findAll();
+    @GetMapping(path = "/findAll/{pageNumber}")
+    public List<PostDto> findAll(@PathVariable(name = "pageNumber") int pageNumber) {
+        return postService.findAll(pageNumber);
     }
 
     @GetMapping(path = "/findUserByCity/{cityName}")

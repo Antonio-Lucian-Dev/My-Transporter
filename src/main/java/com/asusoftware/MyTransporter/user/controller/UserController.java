@@ -1,7 +1,6 @@
 package com.asusoftware.MyTransporter.user.controller;
 
 import com.asusoftware.MyTransporter.user.model.dto.CreateUserDto;
-import com.asusoftware.MyTransporter.user.model.dto.UserAdminProfileDto;
 import com.asusoftware.MyTransporter.user.model.dto.UserDto;
 import com.asusoftware.MyTransporter.user.model.dto.UserProfileDto;
 import com.asusoftware.MyTransporter.user.service.UserService;
@@ -30,14 +29,6 @@ public class UserController {
     }
 
     /*
-    * Retrieve admin profile
-    */
-    @GetMapping(path = "/adminProfile/{id}")
-    public UserAdminProfileDto findAdminProfile(@PathVariable(name = "id") UUID id) {
-        return userService.findUserAdminProfileById(id);
-    }
-
-    /*
      * Retrieve user profile
      */
     @GetMapping(path = "/userProfile/{id}")
@@ -45,9 +36,11 @@ public class UserController {
         return userService.findUserProfileById(id);
     }
 
-    @GetMapping(path = "/findUserByCity/{cityName}")
-    public void findUserByCity(@PathVariable(name = "cityName") String city) {}
+    /* @GetMapping(path = "/findUserByCity/{cityName}")
+    public void findUserByCity(@PathVariable(name = "cityName") String city) {} */
 
     @DeleteMapping(path = "/delete/{id}")
-    public void delete(@PathVariable(name = "id") UUID id) {}
+    public void delete(@PathVariable(name = "id") UUID id) {
+        userService.delete(id);
+    }
 }

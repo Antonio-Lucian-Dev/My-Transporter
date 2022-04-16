@@ -25,8 +25,11 @@ public class User {
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @Column(name = "current_city")
-    private String currentCity;
+    @Column(name = "country")
+    private String country;
+
+    @Column(name = "city")
+    private String city;
 
     @Column(name = "email", nullable = false)
     private String email;
@@ -54,7 +57,7 @@ public class User {
     @JoinColumn(name = "follower_id", referencedColumnName = "id")
     public User followed;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
     private List<NotificationAction> notificationAction;
 
     /*

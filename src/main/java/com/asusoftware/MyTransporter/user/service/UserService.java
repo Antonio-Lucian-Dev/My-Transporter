@@ -1,12 +1,10 @@
 package com.asusoftware.MyTransporter.user.service;
 
-import com.asusoftware.MyTransporter.user.mappers.UserAdminProfileDtoEntity;
 import com.asusoftware.MyTransporter.user.mappers.UserProfileDtoEntity;
 import com.asusoftware.MyTransporter.user.model.User;
 import com.asusoftware.MyTransporter.user.mappers.UserDtoEntity;
 import com.asusoftware.MyTransporter.user.model.UserRole;
 import com.asusoftware.MyTransporter.user.model.dto.CreateUserDto;
-import com.asusoftware.MyTransporter.user.model.dto.UserAdminProfileDto;
 import com.asusoftware.MyTransporter.user.model.dto.UserDto;
 import com.asusoftware.MyTransporter.user.model.dto.UserProfileDto;
 import com.asusoftware.MyTransporter.user.repository.UserRepository;
@@ -23,7 +21,6 @@ public class UserService {
 
     private final UserRepository userRepository;
     private final UserDtoEntity userDtoEntity;
-    private final UserAdminProfileDtoEntity userAdminProfileDtoEntity;
     private final UserProfileDtoEntity userProfileDtoEntity;
 
     public void create(CreateUserDto createUserDto) {
@@ -46,10 +43,6 @@ public class UserService {
         return userRepository.findById(id).orElse(null);
     }
 
-    public UserAdminProfileDto findUserAdminProfileById(UUID id) {
-        return userAdminProfileDtoEntity.userProfileAdminEntityToDto(userRepository.findById(id).orElse(null));
-    }
-
     public UserProfileDto findUserProfileById(UUID id) {
         return userProfileDtoEntity.userProfileToDto(userRepository.findById(id).orElse(null));
     }
@@ -60,5 +53,9 @@ public class UserService {
 
     public List<User> findAllEntity() {
         return userRepository.findAll();
+    }
+
+    public void delete(UUID id) {
+        userRepository.deleteById(id);
     }
 }
