@@ -3,9 +3,14 @@ package com.asusoftware.MyTransporter.user.model;
 import com.asusoftware.MyTransporter.notification.model.NotificationAction;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 
@@ -59,6 +64,7 @@ public class User {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
     private List<NotificationAction> notificationAction;
+
 
     /*
     @OneToMany(mappedBy = "user")
