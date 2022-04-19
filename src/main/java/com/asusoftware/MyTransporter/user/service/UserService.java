@@ -1,6 +1,5 @@
 package com.asusoftware.MyTransporter.user.service;
 
-import com.asusoftware.MyTransporter.auth.ApplicationUserDao;
 import com.asusoftware.MyTransporter.user.mappers.UserProfileDtoEntity;
 import com.asusoftware.MyTransporter.user.model.User;
 import com.asusoftware.MyTransporter.user.mappers.UserDtoEntity;
@@ -10,14 +9,10 @@ import com.asusoftware.MyTransporter.user.model.dto.UserDto;
 import com.asusoftware.MyTransporter.user.model.dto.UserProfileDto;
 import com.asusoftware.MyTransporter.user.repository.UserRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 

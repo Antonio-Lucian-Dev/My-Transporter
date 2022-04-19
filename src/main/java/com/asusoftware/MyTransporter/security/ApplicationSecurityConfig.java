@@ -1,6 +1,5 @@
 package com.asusoftware.MyTransporter.security;
 
-import com.asusoftware.MyTransporter.user.model.UserRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
