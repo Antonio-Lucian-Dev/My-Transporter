@@ -28,6 +28,7 @@ public class UserController {
 
     @PostMapping(path = "/create")
     public void create(@RequestBody CreateUserDto createUserDto) {
+        System.out.println(createUserDto);
         userService.create(createUserDto);
     }
 

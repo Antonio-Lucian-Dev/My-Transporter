@@ -12,10 +12,10 @@ import java.util.UUID;
 @Repository
 public interface UserRepository extends JpaRepository<User, UUID> {
 
-    @Query("SELECT u FROM Users u WHERE u.userRole = com.asusoftware.MyTransporter.user.model.UserRole.ADMIN")
+    @Query("SELECT u FROM Users u WHERE u.userRole = com.asusoftware.MyTransporter.user.model.UserRole.TRANSPORTER")
     User findUserByUserRoleAdmin();
 
-    @Query("SELECT u FROM Users u WHERE u.userRole = com.asusoftware.MyTransporter.user.model.UserRole.USER")
+    @Query("SELECT u FROM Users u WHERE u.userRole = com.asusoftware.MyTransporter.user.model.UserRole.CLIENT")
     List<User> findUserByUserRoleUser();
 
     Optional<User> findByEmail(String email);

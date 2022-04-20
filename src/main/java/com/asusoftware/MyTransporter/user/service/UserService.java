@@ -28,7 +28,7 @@ public class UserService  {
     public void create(CreateUserDto createUserDto) {
         User user = userDtoEntity.userToEntity(createUserDto);
         user.setPassword(passwordEncoder.encode(createUserDto.getPassword()));
-        if(user.getUserRole().equals(UserRole.ADMIN)) {
+        if(user.getUserRole().equals(UserRole.TRANSPORTER)) {
             userRepository.save(user);
         } else {
             User userAdmin = userRepository.findUserByUserRoleAdmin();

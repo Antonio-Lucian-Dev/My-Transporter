@@ -54,6 +54,6 @@ public class NotificationService {
     }
 
     private List<User> findAllUsersWithRoleUser() {
-        return userService.findAllEntity().stream().filter(user -> user.getUserRole().equals(UserRole.USER)).collect(Collectors.toList());
+        return userService.findAllEntity().stream().filter(user -> user.getUserRole().equals(UserRole.CLIENT)).collect(Collectors.toList());
     }
 }

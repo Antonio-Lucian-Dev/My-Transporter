@@ -38,13 +38,14 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, "/api/v1/user/create")
                 .permitAll()
                 .antMatchers(HttpMethod.GET, "/api/v1/user/findAll")
-                .hasAuthority("ADMIN")
+                .hasAuthority("TRANSPORTER")
                 .anyRequest()
                 .authenticated()
                 .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+        http.cors();
     }
 
     @Override
